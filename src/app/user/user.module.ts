@@ -6,10 +6,11 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './service/auth.service';
+import { httpInterceptor } from '../shared/interceptor';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
   imports: [CommonModule, UserRoutingModule, FormsModule, HttpClientModule],
-  providers: [AuthService],
+  providers: [AuthService, httpInterceptor],
 })
 export class UserModule {}

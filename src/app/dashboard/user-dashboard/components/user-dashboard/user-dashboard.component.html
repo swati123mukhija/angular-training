@@ -5,9 +5,20 @@
       <div class="col-md-12">
         <h1 class="display-4">Dashboard</h1>
         <p class="lead text-muted">Welcome {{ userDetail.name }}</p>
-        <app-dashboard-action></app-dashboard-action>
-        <app-exp-details></app-exp-details>
-        <app-edu-details></app-edu-details>
+        <div *ngIf="error.noprofile != ''; else profileDisplay">
+          <a
+            class="btn btn-primary ml"
+            [routerLink]="['/profile/create-profile']"
+            >Create Profile</a
+          >
+        </div>
+        <ng-template #profileDisplay>
+          <div>
+            <app-dashboard-action></app-dashboard-action>
+            <app-exp-details></app-exp-details>
+            <app-edu-details></app-edu-details>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>

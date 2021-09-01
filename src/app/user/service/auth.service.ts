@@ -23,7 +23,7 @@ export class AuthService {
 
   createUser(user: Register): Observable<any> {
     return this.httpClient.post(this.api + 'register', user, {
-      headers: { 'Content-Type': 'application/json' },
+      //headers: { 'Content-Type': 'application/json' },
     });
   }
 }

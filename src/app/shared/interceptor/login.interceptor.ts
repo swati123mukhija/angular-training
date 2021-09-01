@@ -4,8 +4,10 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class LoginInterceptor implements HttpInterceptor {
@@ -15,7 +17,19 @@ export class LoginInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('login intercept');
-    return next.handle(request);
+    console.log(new Date());
+
+    return next.handle(request).pipe(
+      tap(
+        (result: HttpEvent<any>) => {
+          console.log(new Date());
+          console.log(JSON.stringify(result));
+        },
+        (error: HttpErrorResponse) => {
+          console.log(new Date());
+          console.log(JSON.stringify(error));
+        }
+      )
+    );
   }
 }

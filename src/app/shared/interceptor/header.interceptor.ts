@@ -15,7 +15,12 @@ export class HeaderInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('header intercept');
+    if (request.headers.has('Content-type')) {
+      const secureReq = request.clone({
+        headers: request.headers.set('Content-type', 'application/json'),
+      });
+      return next.handle(secureReq);
+    }
     return next.handle(request);
   }
 }

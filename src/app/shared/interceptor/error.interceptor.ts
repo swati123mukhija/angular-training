@@ -5,7 +5,8 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -15,7 +16,18 @@ export class ErrorInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('error');
-    return next.handle(request);
+    //status code
+    //status message
+    //error details
+    return next.handle(request).pipe(
+      catchError((err) => {
+        console.log(JSON.stringify(err));
+        return throwError({
+          status: err.status,
+          statusText: err.statusText,
+          error: err.error,
+        });
+      })
+    );
   }
 }
