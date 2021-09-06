@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Profile } from 'src/app/profile/model/profile';
 import { ProfileService } from 'src/app/profile/services/profile.service';
@@ -11,11 +11,10 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
 })
 export class DisplayProfilesComponent implements OnInit {
   profiles: any = [];
-
   constructor(private profileService: ProfileService, private router: Router) {}
 
   ngOnInit(): void {
-    this.profileService.getProfile().subscribe(
+    this.profileService.getProfiles().subscribe(
       (res) => {
         console.log('Response all profile', JSON.stringify(res));
         this.profiles = res;

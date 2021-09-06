@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from 'src/app/profile/services/profile.service';
 
+
 @Component({
   selector: 'app-display-profile',
   templateUrl: './display-profile.component.html',
@@ -18,7 +19,9 @@ export class DisplayProfileComponent implements OnInit {
 
   ngOnInit(): void {
     const { id } = this.activatedRoute.snapshot.params;
-    this._userId = JSON.parse(localStorage.getItem('userDetails') || '{}');
+    this._userId = JSON.parse(
+      localStorage.getItem('userDetails') || '{}');
+      
     this.profileService.getProfileDetailsByUserId(id).subscribe(
       (res) => {
         console.log('getProfileDetailsByUserId::::', JSON.stringify(res));

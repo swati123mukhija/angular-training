@@ -12,6 +12,7 @@
       <h3>{{ profile.user.name }}</h3>
       <p>{{ profile.company }}</p>
       <p>{{ profile.location }}</p>
+      <p>{{profile.user._id}}</p>
       <a
         [routerLink]="['/profile/display-profile', profile.user._id]"
         class="btn btn-info"
