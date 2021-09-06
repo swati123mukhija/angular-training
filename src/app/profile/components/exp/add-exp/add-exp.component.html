@@ -1,0 +1,124 @@
+<!-- Add Experience -->
+<div class="section add-experience">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 m-auto">
+        <a href="dashboard.html" class="btn btn-light"> Go Back </a>
+        <h1 class="display-4 text-center">Add Your Experience</h1>
+        <p class="lead text-center">
+          Add any developer/programming positions that you have had in the past
+        </p>
+        <small class="d-block pb-3">* = required field</small>
+        <form action="add-education.html" (ngSubmit)="experienceSubmit()">
+          <div class="form-group">
+            <input
+              type="text"
+              class=""
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.title
+              }"
+              placeholder="* Job Title"
+              name="title"
+              required
+              [(ngModel)]="experience.title"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.title }}
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class=""
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.company
+              }"
+              placeholder="* Company"
+              name="company"
+              required
+              [(ngModel)]="experience.company"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.company }}
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class=""
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.location
+              }"
+              placeholder="Location"
+              name="location"
+              [(ngModel)]="experience.location"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.location }}
+            </div>
+          </div>
+          <h6>From Date</h6>
+          <div class="form-group">
+            <input
+              type="date"
+              class=""
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.from
+              }"
+              name="from"
+              [(ngModel)]="experience.from"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.from }}
+            </div>
+          </div>
+          <h6>To Date</h6>
+          <div class="form-group">
+            <input type="date" class="form-control form-control-lg" name="to" />
+          </div>
+          <div class="form-check mb-4">
+            <input
+              class=""
+              [ngClass]="{
+                'form-check-input': true,
+                'is-invalid': errors.current
+              }"
+              type="checkbox"
+              name="current"
+              value=""
+              id="current"
+              [(ngModel)]="experience.current"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.current }}
+            </div>
+            <label class="form-check-label" for="current"> Current Job </label>
+          </div>
+          <div class="form-group">
+            <textarea
+              class=""
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.description
+              }"
+              placeholder="Job Description"
+              name="description"
+              [(ngModel)]="experience.description"
+            ></textarea>
+            <small class="form-text text-muted"
+              >Some of your responsabilities, etc</small
+            >
+            <div class="d-block invalid-feedback">
+              {{ errors.description }}
+            </div>
+          </div>
+          <input type="submit" class="btn btn-info btn-block mt-4" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

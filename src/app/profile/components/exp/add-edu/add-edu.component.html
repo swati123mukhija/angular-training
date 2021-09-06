@@ -1,0 +1,123 @@
+<div class="add-education">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 m-auto">
+        <a href="dashboard.html" class="btn btn-light"> Go Back </a>
+        <h1 class="display-4 text-center">Add Your Education</h1>
+        <p class="lead text-center">
+          Add any school, bootcamp, etc that you have attended
+        </p>
+        <small class="d-block pb-3">* = required field</small>
+        <form action="login.html" (ngSubmit)="educationSubmit()">
+          <div class="form-group">
+            <input
+              type="text"
+              class=""
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.school
+              }"
+              placeholder="* School Or Bootcamp"
+              name="school"
+              required
+              [(ngModel)]="education.school"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.school }}
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class=""
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.degree
+              }"
+              placeholder="* Degree Or Certificate"
+              name="degree"
+              required
+              [(ngModel)]="education.degree"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.degree }}
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class=""
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.fieldofstudy
+              }"
+              placeholder="Field Of Study"
+              name="fieldofstudy"
+              [(ngModel)]="education.fieldofstudy"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.fieldofstudy }}
+            </div>
+          </div>
+          <h6>From Date</h6>
+          <div class="form-group">
+            <input
+              type="date"
+              class=""
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.from
+              }"
+              name="from"
+              [(ngModel)]="education.from"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.from }}
+            </div>
+          </div>
+          <h6>To Date</h6>
+          <div class="form-group">
+            <input type="date" class="form-control form-control-lg" name="to" />
+          </div>
+          <div class="form-check mb-4">
+            <input
+              class="form-check-input"
+              [ngClass]="{
+                'form-check-input': true,
+                'is-invalid': errors.current
+              }"
+              type="checkbox"
+              name="current"
+              value=""
+              id="current"
+              [(ngModel)]="education.current"
+            />
+            <label class="form-check-label" for="current"> Current Job </label>
+            <div class="d-block invalid-feedback">
+              {{ errors.current }}
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea
+              class=""
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.description
+              }"
+              placeholder="Program Description"
+              name="description"
+              [(ngModel)]="education.description"
+            ></textarea>
+            <small class="form-text text-muted"
+              >Tell us about your experience and what you learned</small
+            >
+            <div class="d-block invalid-feedback">
+              {{ errors.description }}
+            </div>
+          </div>
+          <input type="submit" class="btn btn-info btn-block mt-4" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

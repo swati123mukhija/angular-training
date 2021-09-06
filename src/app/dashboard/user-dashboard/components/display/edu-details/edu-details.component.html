@@ -1,0 +1,24 @@
+<!-- Education -->
+<div>
+  <h4 class="mb-2">Education Credentials</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>School</th>
+        <th>Degree</th>
+        <th>Years</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of edu">
+        <td>{{ item.school }}</td>
+        <td>{{ item.degree }}</td>
+        <td>{{ item.from }} - {{ item.to }}</td>
+        <td>
+          <button class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
